@@ -4,7 +4,7 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../formInput/formInput.component";
-import "./signinForm.styles.scss";
+import "./signInForm.styles.scss";
 import Button from "../button/button.component";
 
 const defaultFormFields = {
@@ -12,7 +12,7 @@ const defaultFormFields = {
   password: "",
 };
 
-const SigninForm = () => {
+const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
@@ -82,4 +82,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default SignInForm;
