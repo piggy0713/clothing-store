@@ -28,6 +28,7 @@ const firebaseConfig = {
   storageBucket: "crwn-clothing-db-3ef62.appspot.com",
   messagingSenderId: "456181002300",
   appId: "1:456181002300:web:bbe97c0cc3082a32581339",
+  measurementId: "G-3J1LXPKL6H",
 };
 
 // Initialize Firebase
