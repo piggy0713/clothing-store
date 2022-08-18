@@ -12,15 +12,19 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+const serializableConfiguration = {
+  serializableCheck: {
+    ignoredActions: ["user/setCurrentUser", "persist/PERSIST"],
+    ignoredPaths: ["user.currentUser", "register"],
+  },
+};
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: ["user/setCurrentUser", "persist/PERSIST"],
-        ignoredPaths: ["user.currentUser", "register"],
-      },
-    }).concat(logger),
+    process.env.NODE_ENV === "production"
+      ? getDefaultMiddleware(serializableConfiguration)
+      : getDefaultMiddleware(serializableConfiguration).concat(logger),
   devTools: process.env.NODE_ENV !== "production",
 });
 
