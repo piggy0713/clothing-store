@@ -1,14 +1,9 @@
-import { createSelector } from "reselect";
+import { createSelector } from "@reduxjs/toolkit";
 
-const selectCategoryReducer = (state) => state.categories;
-
-export const selectCategories = createSelector(
-  [selectCategoryReducer],
-  (categoriesSlice) => categoriesSlice.categories
-);
+const selectCategories = (state) => state.categories.categories;
 
 export const selectCategoriesMap = createSelector(
-  [selectCategories],
+  selectCategories,
   (categories) =>
     categories.reduce((acc, category) => {
       const { title, items } = category;
