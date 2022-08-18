@@ -20,7 +20,7 @@ export const store = configureStore({
         ignoredActions: ["user/setCurrentUser", "persist/PERSIST"],
         ignoredPaths: ["user.currentUser", "register"],
       },
-    }).concat(process.env.NODE_ENV !== "production" && logger),
+    }).concat(logger),
   devTools: process.env.NODE_ENV !== "production",
 });
 
