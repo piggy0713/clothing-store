@@ -17,10 +17,10 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ["user/setCurrentUser"],
-        ignoredPaths: ["user.currentUser"],
+        ignoredActions: ["user/setCurrentUser", "persist/PERSIST"],
+        ignoredPaths: ["user.currentUser", "register"],
       },
-    }).concat(logger),
+    }).concat(process.env.NODE_ENV !== "production" && logger),
   devTools: process.env.NODE_ENV !== "production",
 });
 
