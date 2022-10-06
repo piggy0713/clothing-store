@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+// import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 
 const initialState = { categories: [], isLoading: false, error: null };
 
@@ -28,12 +28,12 @@ export const {
 } = categoriesSlice.actions;
 export default categoriesSlice.reducer;
 
-export const fetchCategories = () => async (dispatch) => {
-  dispatch(fetchCategoriesStart());
-  try {
-    const categoriesArray = await getCategoriesAndDocuments("categories");
-    dispatch(fetchCategoriesSuccess(categoriesArray));
-  } catch (error) {
-    dispatch(fetchCategoriesFailure(error.message));
-  }
-};
+// export const fetchCategories = () => async (dispatch) => {
+//   dispatch(fetchCategoriesStart());
+//   try {
+//     const categoriesArray = await getCategoriesAndDocuments("categories");
+//     dispatch(fetchCategoriesSuccess(categoriesArray));
+//   } catch (error) {
+//     dispatch(fetchCategoriesFailure(error.message));
+//   }
+// };

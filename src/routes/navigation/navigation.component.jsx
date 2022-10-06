@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/km.png";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selectors";
 import { selectIsCartOpen } from "../../store/cart/cart.selectors";
 import { signOutAuthUser } from "../../utils/firebase/firebase.utils";
+import { signOutStart } from "../../store/user/user.reducer";
 import CartIcon from "../../components/cartIcon/cartIcon.component";
 import CartDropdown from "../../components/cartDropdown/cartDropdown.component";
 import {
@@ -14,8 +15,12 @@ import {
 } from "./navigation.styles";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const handleSignOut = () => {
+    dispatch(signOutStart());
+  };
 
   return (
     <>
@@ -26,7 +31,7 @@ const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <NavLink as="span" onClick={signOutAuthUser}>
+            <NavLink as="span" onClick={handleSignOut}>
               Sign Out
             </NavLink>
           ) : (
