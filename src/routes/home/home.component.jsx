@@ -5,7 +5,10 @@ import SEO from "../../components/SEO";
 const Home = () => {
   return (
     <>
-      <SEO title="Home" description="Home Page - KM Clothing" />
+      <SEO
+        title="Home - KM Clothing"
+        description="Clothing store for all you needs"
+      />
       <Directory />
       <Outlet />
     </>
