@@ -1,9 +1,7 @@
 import { Outlet } from "react-router-dom";
-import logo from "../../assets/km.png";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selectors";
 import { selectIsCartOpen } from "../../store/cart/cart.selectors";
-import { signOutAuthUser } from "../../utils/firebase/firebase.utils";
 import { signOutStart } from "../../store/user/user.reducer";
 import CartIcon from "../../components/cartIcon/cartIcon.component";
 import CartDropdown from "../../components/cartDropdown/cartDropdown.component";
@@ -26,7 +24,7 @@ const Navigation = () => {
     <>
       <NavigationContainer>
         <LogoContainer to="/">
-          <img src={logo} alt="logo" />
+          <img src="/km.png" alt="logo" />
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
